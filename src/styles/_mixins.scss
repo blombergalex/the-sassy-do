@@ -1,0 +1,9 @@
+// layout 
+
+@mixin flex-layout {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: $indent__base;
+}

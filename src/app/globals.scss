@@ -1,0 +1,24 @@
+@import '../styles/_variables.scss';
+@import '../styles/mixins';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  background-color: $primary__bg;
+  color: $primary__text;  
+  max-width: 100vw;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.main {
+  @include flex-layout;
+}
