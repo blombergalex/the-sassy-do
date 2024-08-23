@@ -3,13 +3,12 @@
 
 .main {
   @include flex-layout;
-  height: 100vh;
-  width: 100%;
   padding: $indent__xl;
+  margin: $indent__base;
 
-  .add-btn {
+  &__btn {
     @include button-styles;
-    background-color: $color-white;
+    background-color: $color-pink;
     color: $primary__text;
   }
 }
@@ -17,13 +16,15 @@
 .todo-list {
 
   &__btn {
-    @include button-styles;
+    @include button-styles
   }
 
   // // .save__btn {
   // //   @include button-styles;
   // //   background-color: $color-complete;
   // // }
+
+  // CONDITIONALLY RENDER BTN COLORS DEPENDING ON CLASS!
 
   .delete__btn {
     @include button-styles;

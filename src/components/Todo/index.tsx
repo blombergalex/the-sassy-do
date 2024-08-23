@@ -79,12 +79,12 @@ function TodoList() {
           onKeyDown={handleKeyDown}
           placeholder="Add todo"
         />
-        <button className="add__btn" onClick={() => addTodo(newTodoText)}>
+        <button className="main--add__btn" onClick={() => addTodo(newTodoText)}>
           Add
         </button>
       </div>
 
-      <ul className="todo-list">
+      <ul className="main">
         {filteredTodos.map((todo, index) => (
           <li className="todo-item" key={index}>
             {editIndex === index ? (
@@ -99,11 +99,11 @@ function TodoList() {
                     }
                   }}
                 />
-                <button className="save__btn" onClick={() => saveTodo(index)}>
+                <button className="main--save__btn" onClick={() => saveTodo(index)}>
                   Save
                 </button>
                 <button
-                  className="delete__btn"
+                  className="main--delete__btn"
                   onClick={() => deleteTodo(index)}
                 >
                   Delete
@@ -117,13 +117,13 @@ function TodoList() {
                   {todo.text}
                 </span>
                 <button
-                  className="complete__btn"
+                  className="todo-list--complete__btn"
                   onClick={() => toggleCompletion(index)}
                 >
                   {todo.completed ? "Undo" : "Complete"}
                 </button>
                 <button
-                  className="edit__btn"
+                  className="todo-list--edit__btn"
                   onClick={() => startEditingTodo(index)}
                 >
                   Edit

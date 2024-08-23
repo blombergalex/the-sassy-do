@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "The Sassy-Do",
-  description: "A SASSy to-do-list built with Next.js and React, using TypeScript, LocalStorage and (obviously) SASS for styling",
+  description:
+    "A SASSy to-do-list built with Next.js and React, using TypeScript, LocalStorage and (obviously) SASS for styling",
 };
 
 export default function RootLayout({
@@ -16,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
