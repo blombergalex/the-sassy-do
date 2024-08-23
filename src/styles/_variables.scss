@@ -8,17 +8,16 @@ $indent__small: $indent__base / 2; //8px
 $indent__m: $indent__base * 1.5; //24px
 $indent__l: $indent__base * 2; //32px
 $indent__xl: $indent__base * 3; //48px
-// $indent__xxl: $indent__base * 4; //64px
-// $indent__xxxl: $indent__base * 5; //80px
 
 //Colors
 
 $color-white: #fff;
 $color-pink: #dd22cd;
 $color-grey: #5d5a5d;
-$color-dark-grey: #2f2e2f;
+$color-dark-grey: #1d1d1d;
 $color-complete: rgb(67, 124, 67);
 $color-delete: rgb(250, 36, 36);
+$color-edit: orange;
 
 
 //Utility-colors
@@ -28,9 +27,7 @@ $primary__bg: $color-dark-grey;
 
 //screen size
 
-$bp-mobile: 275px;
 $bp-tablet: 768px;
-$bp-desktop: 1200px;
 
 // fonts
 $font-radio: "Radio Canada Big", sans-serif;

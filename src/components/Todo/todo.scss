@@ -6,40 +6,118 @@
   padding: $indent__xl;
   margin: $indent__base;
 
+  .new-item {
+    display: flex;
+
+  }
+
+  .input-field {
+    padding: $indent__small $indent__m; 
+    border: 2px solid $color-grey; 
+    border-radius: 4px; 
+    font-size: 1rem; 
+    transition: border-color 0.3s, box-shadow 0.3s;
+  
+    &:focus {
+      outline: none; 
+      border-color: $color-pink; 
+    }
+  }
+
   &__btn {
     @include button-styles;
     background-color: $color-pink;
-    color: $primary__text;
   }
 }
 
-.todo-list {
+.list {
+  @include flex-layout;
+  list-style-type: none;
+  width: 70%;
+
+  .todo-item {
+    @include flex-layout; 
+    flex-direction: row;
+    margin: 0;
+    width: 100%;
+    padding: $indent__small;
+    border-bottom: 1px solid $color-grey;
+  
+    .todo-text {
+      flex: 1; 
+      margin-right: $indent__small; 
+    }
+  }
+
+  .btn-group {
+    display: flex;
+    gap: $indent__small;
+  }
 
   &__btn {
-    @include button-styles
-  }
-
-  // // .save__btn {
-  // //   @include button-styles;
-  // //   background-color: $color-complete;
-  // // }
-
-  // CONDITIONALLY RENDER BTN COLORS DEPENDING ON CLASS!
-
-  .delete__btn {
     @include button-styles;
-    background-color: $color-delete;
   }
 
-  
-  // .complete__btn {
-  //   @include button-styles;
-  //   background-color: $color-complete;
-  // }
+  &__save {
+    background-color: $color-complete;
+    @include button-hover-darken($color-complete);
+  }
 
-  // .edit__btn {
-  //   @include button-styles;
-  //   background-color: $color-complete;
-  // }
-  
+  &__delete {
+    background-color: $color-delete;
+    @include button-hover-darken($color-delete);
+  }
+
+  &__toggle {
+    background-color: $color-complete;
+    @include button-hover-darken($color-complete);
+  }
+
+  &__edit {
+    background-color: $color-edit;
+    @include button-hover-darken($color-edit);
+  }
+
+  &__show-completed {
+    background-color: $color-grey;
+    @include button-hover-darken($color-grey);
+  }
+
+  .completed {
+    text-decoration: line-through;
+  }
+
+  @include responsive-narrow {
+    width: 90%;
+
+    .todo-item {
+      flex-direction: column; 
+      align-items: flex-start;
+
+      .todo-text {
+        margin-right: 0;
+        margin-bottom: $indent__small;
+        flex: unset; 
+      }
+
+      .btn-group {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end; 
+        gap: $indent__small;
+        flex-wrap: wrap;
+      }
+
+      .list__btn {
+        width: 45%;
+      }
+    }
+
+    .main__btn {
+      width: 45%; 
+      margin-top: $indent__small; 
+      margin-left: 0;
+      padding: 0;
+    }
+  }
 }

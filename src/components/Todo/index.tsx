@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import "./todo.scss"
+import "./todo.scss";
 
 type Todo = {
   text: string;
@@ -71,20 +71,24 @@ function TodoList() {
 
   return (
     <div className="main">
-      <div className="todo-input">
+      <div className="new-item">
         <input
+          className="input-field"
           type="text"
           value={newTodoText}
           onChange={(e) => setNewTodoText(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Add todo"
         />
-        <button className="main--add__btn" onClick={() => addTodo(newTodoText)}>
+        <button
+          className="main__btn __add"
+          onClick={() => addTodo(newTodoText)}
+        >
           Add
         </button>
       </div>
 
-      <ul className="main">
+      <ul className="list">
         {filteredTodos.map((todo, index) => (
           <li className="todo-item" key={index}>
             {editIndex === index ? (
@@ -99,15 +103,20 @@ function TodoList() {
                     }
                   }}
                 />
-                <button className="main--save__btn" onClick={() => saveTodo(index)}>
-                  Save
-                </button>
-                <button
-                  className="main--delete__btn"
-                  onClick={() => deleteTodo(index)}
-                >
-                  Delete
-                </button>
+                <div className="btn-group">
+                  <button
+                    className="list__btn list__save"
+                    onClick={() => saveTodo(index)}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className="list__btn list__delete"
+                    onClick={() => deleteTodo(index)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </>
             ) : (
               <>
@@ -116,18 +125,20 @@ function TodoList() {
                 >
                   {todo.text}
                 </span>
-                <button
-                  className="todo-list--complete__btn"
-                  onClick={() => toggleCompletion(index)}
-                >
-                  {todo.completed ? "Undo" : "Complete"}
-                </button>
-                <button
-                  className="todo-list--edit__btn"
-                  onClick={() => startEditingTodo(index)}
-                >
-                  Edit
-                </button>
+                <div className="btn-group">
+                  <button
+                    className="list__btn list__toggle"
+                    onClick={() => toggleCompletion(index)}
+                  >
+                    {todo.completed ? "Undo" : "Complete"}
+                  </button>
+                  <button
+                    className="list__btn list__edit"
+                    onClick={() => startEditingTodo(index)}
+                  >
+                    Edit
+                  </button>
+                </div>
               </>
             )}
           </li>
@@ -135,7 +146,7 @@ function TodoList() {
       </ul>
 
       <button
-        className="show-completed__btn"
+        className="list__btn list__show-completed"
         onClick={() => setShowCompleted(!showCompleted)}
       >
         {showCompleted ? "Show Active" : "Show Completed"}

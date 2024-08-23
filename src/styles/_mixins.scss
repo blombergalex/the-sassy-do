@@ -11,14 +11,30 @@
 // button 
 
 @mixin button-styles {
-  background-color: $color-complete;
   border: none;
   border-radius: 4px;
+  color: $primary__text;
   cursor: pointer;
   margin-left: $indent__small;
   padding: $indent__small $indent__m;
+  text-align: center;
+  max-width: fit-content;
 
   &:hover {
     transition: all 0.5s;
   }
 } 
+
+@mixin button-hover-darken($bg-color) {
+  &:hover {
+    background-color: darken($bg-color, 20%);
+    color: $primary__text;
+    transition: all 0.3s ease;
+  }
+}
+
+@mixin responsive-narrow {
+  @media screen and (max-width: $bp-tablet) {
+    @content;
+  }
+}
