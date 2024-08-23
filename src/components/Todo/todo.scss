@@ -1,0 +1,44 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.main {
+  @include flex-layout;
+  height: 100vh;
+  width: 100%;
+  padding: $indent__xl;
+
+  .add-btn {
+    @include button-styles;
+    background-color: $color-white;
+    color: $primary__text;
+  }
+}
+
+.todo-list {
+
+  &__btn {
+    @include button-styles;
+  }
+
+  // // .save__btn {
+  // //   @include button-styles;
+  // //   background-color: $color-complete;
+  // // }
+
+  .delete__btn {
+    @include button-styles;
+    background-color: $color-delete;
+  }
+
+  
+  // .complete__btn {
+  //   @include button-styles;
+  //   background-color: $color-complete;
+  // }
+
+  // .edit__btn {
+  //   @include button-styles;
+  //   background-color: $color-complete;
+  // }
+  
+}
